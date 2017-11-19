@@ -3,6 +3,11 @@
 class RockPaperScissors
   # generic chooser for our intro and rps selection prompts
   def choose(text, max_choice, pnum=nil)
+    max_choice = max_choice.to_i
+    if max_choice < 1
+      raise "Bad value for available choices: #{max_choice}"
+    end
+
     valid_choices = (1..max_choice)
     choice = 0
     first_run = true
